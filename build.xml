@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project name="Team11" default="compile" xmlns:ivy="antlib:org.apache.ivy.ant">
-
+	
+	<property name="lamp.property" value="lamp" />
 	<property name="team.name" value="Team11" />
 	<property name="project.name" value="piirivalve" />
 	<property name="project.dir" value="${basedir}" />

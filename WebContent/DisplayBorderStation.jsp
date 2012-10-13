@@ -12,16 +12,16 @@
 		<h3>Piiripunkt</h3>
 		<table>
 			<tr>
-				<th>Nimetus</th>
-				<td>${borderStation.name }</td>
+				<th>Nimetus:</th>
+				<td>${borderStation.name}</td>
 			</tr>
 			<tr>
-				<th>Aadress</th>			
+				<th>Aadress:</th>			
 				<td>${borderStation.address}</td>
 				
 			</tr>
 			<tr>
-				<th>Valvurite arv</th>
+				<th>Valvurite arv:</th>
 				<td>${borderStation.guardCount}</td>
 			</tr>
 		</table>

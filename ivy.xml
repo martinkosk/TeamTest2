@@ -4,9 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
 
-	<info organisation="itcollege" module="i377-praks1">
-		<ivyauthor name="Priit Liivak" url="mailto:priit.liivak@itcollege.ee" />
-	</info>
+	<info organisation="itcollege" module="borderproject" />
 
 	<configurations>
 		<conf name="build" extends="runtime,source"

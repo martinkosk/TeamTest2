@@ -5,3 +5,4 @@ WebContent/WEB-INF/lib
 lib/build
 .project
 ivy
+bin

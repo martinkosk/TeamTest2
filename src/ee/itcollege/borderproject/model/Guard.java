@@ -10,10 +10,6 @@ public class Guard implements Serializable {
 	private int age;
 	private static final long serialVersionUID = 1L;
 
-	public Guard() {
-		super();
-	}
-
 	public int getId() {
 		return this.id;
 	}

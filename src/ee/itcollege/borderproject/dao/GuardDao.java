@@ -19,10 +19,10 @@ public interface GuardDao {
 	
 	List<Guard> searchGuards(int name) throws SQLException;
 	
-	void updateGuard(int id, int age);
+	void updateGuard(int id, int age) throws SQLException;
 
-	void updateGuard(int id, String name);
+	void updateGuard(int id, String name) throws SQLException;
 
-	void updateGuard(int id, String name, int age);	
+	void updateGuard(int id, String name, int age) throws SQLException;	
 	
 }

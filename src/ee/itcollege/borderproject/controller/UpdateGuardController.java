@@ -1,6 +1,7 @@
 package ee.itcollege.borderproject.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import ee.itcollege.borderproject.dao.GuardDao;
 import ee.itcollege.borderproject.dao.impl.GuardDaoJdbc;
 
 @WebServlet("/updateGuard")
-public class UpateGuardController extends HttpServlet {
+public class UpdateGuardController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -43,25 +44,27 @@ public class UpateGuardController extends HttpServlet {
 			age = Integer.parseInt(ageString);
 		} 
 		catch (NumberFormatException e) {
-			e.getMessage();
 			age = -1;
 		}
 		
 		GuardDao guardDao = new GuardDaoJdbc();
-		
-		if (name == null && ageString == null)
+		try{
+			if (name == null && ageString == null)
+				return;
+			else if (name != null && ageString == null)
+				guardDao.updateGuard(id, name);
+			else if (name == null && ageString != null){
+				if(age != -1) 
+					guardDao.updateGuard(id, age);
+			}
+			else if (name != null && ageString != null){
+				if(age != -1)
+					guardDao.updateGuard(id, name, age);
+			}
+		}
+		catch(SQLException e){
 			return;
-		else if (name != null && ageString == null)
-			guardDao.updateGuard(id, name);
-		else if (name == null && ageString != null){
-			if(age != -1) 
-				guardDao.updateGuard(id, age);
 		}
-		else if (name != null && ageString != null){
-			if(age != -1)
-				guardDao.updateGuard(id, name, age);
-		}
-	
 	}
 
 }

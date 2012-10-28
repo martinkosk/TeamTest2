@@ -128,6 +128,55 @@ public class GuardDaoJdbc implements GuardDao {
 		return guards;
 	}
 	
+	@Override
+	public void updateGuard(int id, String name, int age) throws SQLException {
+		Connection connection = getConnection();
+		PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_NAME_AGE);
+		
+		try {
+			statement.setString(1, name);
+			statement.setInt(2, age);
+			statement.setInt(3, id);
+			statement.execute();
+		} 
+		finally {
+			statement.close();
+			connection.close();
+		} 
+	}
+	
+	@Override
+	public void updateGuard(int id, int age) throws SQLException {
+		Connection connection = getConnection();
+		PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_AGE);
+		
+		try {
+			statement.setInt(1, age);
+			statement.setInt(2, id);
+			statement.execute();
+		} 
+		finally {
+			statement.close();
+			connection.close();
+		}
+	}
+	
+	@Override
+	public void updateGuard(int id, String name) throws SQLException {
+		Connection connection = getConnection();
+		PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_NAME);
+		
+		try {
+			statement.setString(1, name);
+			statement.setInt(2, id);
+			statement.execute();
+		} 
+		finally {
+			statement.close();
+			connection.close();
+		}
+	}
+	
 	private Connection getConnection() {
 		try {
 			Class.forName(DRIVER_NAME);
@@ -156,73 +205,6 @@ public class GuardDaoJdbc implements GuardDao {
 		} 
 
 		return guards;
-	}
-	
-	@Override
-	public void updateGuard(int id, int age) {
-		Connection connection = getConnection();
-		try {
-			PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_AGE);
-			statement.setInt(1, age);
-			statement.setInt(2, id);
-			statement.execute();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		finally {
-			try {
-				connection.close();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	@Override
-	public void updateGuard(int id, String name) {
-		Connection connection = getConnection();
-		try {
-			PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_NAME);
-			statement.setString(1, name);
-			statement.setInt(2, id);
-			statement.execute();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		finally {
-			try {
-				connection.close();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	@Override
-	public void updateGuard(int id, String name, int age) {
-		Connection connection = getConnection();
-		try {
-			PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT_SET_NAME_AGE);
-			statement.setString(1, name);
-			statement.setInt(2, age);
-			statement.setInt(3, id);
-			statement.execute();
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		finally {
-			try {
-				connection.close();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 }
 

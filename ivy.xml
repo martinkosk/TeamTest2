@@ -16,5 +16,6 @@
 	<dependencies>
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="build->default" />
 		<dependency org="jstl" name="jstl" rev="1.2"/>
+		<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="runtime->default"/>
 	</dependencies>
 </ivy-module>

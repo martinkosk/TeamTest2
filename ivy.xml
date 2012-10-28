@@ -7,15 +7,14 @@
 	<info organisation="itcollege" module="borderproject" />
 
 	<configurations>
-		<conf name="build" extends="runtime,source"
-			description="Modules needed only for building application from source" />
+		<conf name="build" extends="runtime,source" description="Modules needed only for building application from source" />
 		<conf name="runtime" description="Modules needed for running application" />
 		<conf name="source" description="Sources of used jars" />
 	</configurations>
 
 	<dependencies>
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="build->default" />
-		<dependency org="jstl" name="jstl" rev="1.2"/>
+		<dependency org="jstl" name="jstl" rev="1.2" conf="runtime->default"/>
 		<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="runtime->default"/>
 	</dependencies>
 </ivy-module>

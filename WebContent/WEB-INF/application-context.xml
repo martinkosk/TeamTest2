@@ -11,4 +11,6 @@
 	
 	<context:component-scan base-package="ee.itcollege.borderproject" />
 	
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	
 </beans>

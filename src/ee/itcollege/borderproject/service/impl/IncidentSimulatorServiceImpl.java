@@ -56,7 +56,7 @@ public class IncidentSimulatorServiceImpl implements IncidentService {
 		List<String> statuses = new ArrayList<String>();
 		statuses.add("Lahendamata");
 		statuses.add("Toimub praegu");
-		statuses.add("Lahendatud");
+		statuses.add("Uurimises");
 			
 		return statuses.get(new Random().nextInt(statuses.size()));
 	}	

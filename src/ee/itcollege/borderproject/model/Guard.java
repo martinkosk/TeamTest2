@@ -27,8 +27,6 @@ public class Guard implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Min(value = 2)
-	@Max(value = 20)
 	private String name;
 	private int age;
 	private static final long serialVersionUID = 1L;

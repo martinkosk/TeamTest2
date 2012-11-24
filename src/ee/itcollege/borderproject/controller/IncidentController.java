@@ -16,31 +16,33 @@ import ee.itcollege.borderproject.service.IncidentService;
 
 @Controller
 public class IncidentController {
-	
+
 	private static final String INCIDENT_ATTRIBUTE = "incidents";
-	
+
 	@Resource
 	private IncidentService incidentService;
-	
+
 	@RequestMapping(value = "/incident/listAll", method = RequestMethod.GET)
 	public String listAllIncidents(Model model) {
 		List<Incident> incidentList = incidentService.getUnresolvedIncidents();
 		model.addAttribute(INCIDENT_ATTRIBUTE, incidentList);
 		return "ListIncidents";
 	}
-	
-	@RequestMapping(value="/incident/reportIncident", method=RequestMethod.GET) 
-	 public String reportIncident() {
-	  return "ReportIncident";
-	 }
-	 
-	 @RequestMapping(value="/incident/reportIncident", method=RequestMethod.POST)
-	 public String receiveReportIncident(@ModelAttribute Incident incident, Model model) {
-	  List<Incident> incidents = new ArrayList<Incident>();
-	  incidents.add(incident);
-	  model.addAttribute(INCIDENT_ATTRIBUTE, incidents);
-	  
-	  return "ListIncidents";
-	 }
-	
+
+	@RequestMapping(value = "/incident/reportIncident", method = RequestMethod.GET)
+	public String reportIncident(Model model) {
+		model.addAttribute(new Incident());
+		return "ReportIncident";
+	}
+
+	@RequestMapping(value = "/incident/reportIncident", method = RequestMethod.POST)
+	public String receiveReportIncident(@ModelAttribute Incident incident,
+			Model model) {
+		List<Incident> incidents = new ArrayList<Incident>();
+		incidents.add(incident);
+		model.addAttribute(INCIDENT_ATTRIBUTE, incidents);
+
+		return "ListIncidents";
+	}
+
 }

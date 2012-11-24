@@ -1,28 +1,24 @@
 package ee.itcollege.borderproject.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import ee.itcollege.borderproject.model.Guard;
 
 public interface GuardDao {
 	
-	List<Guard> getGuards() throws SQLException;
+	List<Guard> getGuards();
 
-	void saveGuard(Guard guard) throws SQLException;
+	void saveGuard(Guard guard) ;
 	
-	void saveGuards(List<Guard> guards) throws SQLException;
+	void saveGuards(List<Guard> guards);
 	
-	List<Guard> searchGuards(String name, int age) throws SQLException;
+	List<Guard> searchGuards(String name, Integer age);
 	
-	List<Guard> searchGuards(String name) throws SQLException;
+	List<Guard> searchGuards(String name);
 	
-	List<Guard> searchGuards(int name) throws SQLException;
+	List<Guard> searchGuards(Integer age);
 	
-	void updateGuard(int id, int age) throws SQLException;
-
-	void updateGuard(int id, String name) throws SQLException;
-
-	void updateGuard(int id, String name, int age) throws SQLException;	
+	Guard searchGuard(Integer id);
 	
+	void updateGuard(Guard guard);
 }

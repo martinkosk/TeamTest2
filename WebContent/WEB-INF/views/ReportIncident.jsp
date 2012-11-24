@@ -6,31 +6,39 @@
 <pr:Layout>
 	<h1>Report incident</h1>
 	<div class="hero-unit">
-		<form method="post" action="reportIncident">
+
+		<form:form action="incident/reportIncident" method="POST"
+			modelAttribute="incident">
 			<table>
 				<tr>
-					<td><label>Start</label></td>
-					<td><input type="text" name="start"></td>
+					<td><form:label path="start">Start</form:label></td>
+					<td><form:input path="start" /></td>
+					<td><form:errors path="start" /></td>
 				</tr>
 				<tr>
-					<td><label>End</label></td>
-					<td><input type="text" name="end"></td>
+					<td><form:label path="end">End</form:label></td>
+					<td><form:input path="end" /></td>
+					<td><form:errors path="end" /></td>
 				</tr>
 				<tr>
-					<td><label>Location</label></td>
-					<td><input type="text" name="location"></td>
+					<td><form:label path="location">Location</form:label></td>
+					<td><form:input path="location" /></td>
+					<td><form:errors path="location" /></td>
 				</tr>
 				<tr>
-					<td><label>Description</label></td>
-					<td><input type="text" name="description"></td>
+					<td><form:label path="description">Description</form:label></td>
+					<td><form:input path="description" /></td>
+					<td><form:errors path="description" /></td>
 				</tr>
 				<tr>
-					<td><label>Count of involved guards</label></td>
-					<td><input type="text" name="involvedGuardCount"></td>
+					<td><form:label path="involvedGuardCount">Involved guard count</form:label></td>
+					<td><form:input path="involvedGuardCount" /></td>
+					<td><form:errors path="involvedGuardCount" /></td>
 				</tr>
 				<tr>
-					<td><label>Status</label></td>
-					<td><input type="text" name="status"></td>
+					<td><form:label path="status">Status</form:label></td>
+					<td><form:input path="status" /></td>
+					<td><form:errors path="status" /></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -38,6 +46,6 @@
 						class="btn btn-primary btn-larg" /></td>
 				</tr>
 			</table>
-		</form>
+		</form:form>
 	</div>
 </pr:Layout>

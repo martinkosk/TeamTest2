@@ -40,6 +40,7 @@
 
 	<target name="ivy-retrieve" description="Retrieve dependencies with ivy">
 		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+		<ivy:settings file="${project.dir}/ivy-settings.xml" />
 		<property name="ivy.default.ivy.user.dir" value="${ivy.cache.dir}" />
 		<ivy:resolve file="${project.dir}/ivy.xml" log="download-only" />
 

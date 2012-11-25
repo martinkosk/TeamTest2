@@ -26,7 +26,7 @@ public class IncidentSimulatorServiceImpl implements IncidentService {
 			incident.setInvolvedGuardCount(new Random().nextInt(50));
 			incident.setLocation(getRandomLocation());
 			incident.setStatus(getRandomStatus());
-			incident.setEnd(new Date());		
+			incident.setEnding(new Date());		
 			
 			incidents.add(incident);
 		}

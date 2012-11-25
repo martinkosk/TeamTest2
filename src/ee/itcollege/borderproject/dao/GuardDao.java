@@ -21,4 +21,6 @@ public interface GuardDao {
 	Guard searchGuard(Integer id);
 	
 	void updateGuard(Guard guard);
+
+	void deleteGuard(Integer guardId);
 }

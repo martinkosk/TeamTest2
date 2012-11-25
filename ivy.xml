@@ -35,6 +35,9 @@
 		<dependency org="org.springframework.security" name="spring-security-web" rev="3.1.2.RELEASE" conf="runtime->default" />
 		<dependency org="org.springframework.security" name="spring-security-config" rev="3.1.2.RELEASE" conf="runtime->default" />
 		<dependency org="org.springframework.security" name="spring-security-taglibs" rev="3.1.2.RELEASE" conf="runtime->default" />
+		
+		<dependency org="joda-time" name="joda-time" rev="2.1" conf="source,runtime->default"  />
+		
 	
 	</dependencies>
 </ivy-module>

@@ -29,7 +29,8 @@ public class GuardDaoJpa implements GuardDao {
 					Guard.class);
 			List<Guard> guards = q.getResultList();
 			return guards;
-		} finally {
+		} 
+		finally {
 			em.close();
 		}
 	}
@@ -54,7 +55,8 @@ public class GuardDaoJpa implements GuardDao {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		try {
 			return em.find(Guard.class, id);
-		} finally {
+		} 
+		finally {
 			em.close();
 		}
 	}
@@ -68,7 +70,8 @@ public class GuardDaoJpa implements GuardDao {
 			q.setParameter(GUARD_NAME_PARAMETER, name).setParameter(GUARD_AGE_PARAMETER, age);
 			List<Guard> guards = q.getResultList();
 			return guards;
-		} finally {
+		} 
+		finally {
 			em.close();
 		}
 	}
@@ -82,7 +85,8 @@ public class GuardDaoJpa implements GuardDao {
 			q.setParameter(GUARD_NAME_PARAMETER, name);
 			List<Guard> guards = q.getResultList();
 			return guards;
-		} finally {
+		} 
+		finally {
 			em.close();
 		}
 	}
@@ -96,7 +100,8 @@ public class GuardDaoJpa implements GuardDao {
 			q.setParameter(GUARD_AGE_PARAMETER, age);
 			List<Guard> guards = q.getResultList();
 			return guards;
-		} finally {
+		} 
+		finally {
 			em.close();
 		}
 	}
@@ -108,7 +113,25 @@ public class GuardDaoJpa implements GuardDao {
 			em.getTransaction().begin();
 			em.merge(guard);
 			em.getTransaction().commit();
-		} finally {
+		} 
+		finally {
+			em.close();
+		}
+	}
+
+	@Override
+	public void deleteGuard(Integer id) {
+		EntityManager em = entityManagerFactory.createEntityManager();
+		try {
+			em.getTransaction().begin();			
+			Guard guard = em.find(Guard.class, id);
+			
+			if (guard != null)
+				em.remove(guard);
+			
+			em.getTransaction().commit();
+		} 
+		finally {
 			em.close();
 		}
 	}

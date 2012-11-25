@@ -10,6 +10,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @NamedQueries({ 
 	@NamedQuery(name = "Guard.findAll", 
@@ -27,8 +28,13 @@ public class Guard implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Size(min = 2, max = 20)
 	private String name;
+	
+	@Min(value = 19)
+	@Max(value = 70)
 	private int age;
+	
 	private static final long serialVersionUID = 1L;
 
 	public int getId() {

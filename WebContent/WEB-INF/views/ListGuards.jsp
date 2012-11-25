@@ -11,10 +11,10 @@
 				<th>Name</th>
 				<th>Age</th>
 			</tr>
-			<c:forEach items="${guards}" var="guard" varStatus="i">
+			<c:forEach items="${guards}" var="guard">
 				<tr>
-					<td>${i.count} &nbsp;</td>
-					<td>${guard.name} &nbsp; &nbsp;</td>
+					<td>${guard.id}</td>
+					<td>${guard.name}</td>
 					<td>${guard.age}</td>
 				</tr>
 			</c:forEach>

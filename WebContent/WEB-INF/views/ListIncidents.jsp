@@ -6,6 +6,7 @@
 	<div class="hero-unit">
 		<table>
 			<tr>
+				<th>Id</th>
 				<th>Start</th>
 				<th>End</th>
 				<th>Location</th>
@@ -15,8 +16,9 @@
 			</tr>
 			<c:forEach items="${incidents}" var="incident">
 				<tr>
+					<td>${incident.id}</td>
 					<td>${incident.start}</td>
-					<td>${incident.end}</td>
+					<td>${incident.ending}</td>
 					<td>${incident.location}</td>
 					<td>${incident.description}</td>
 					<td>${incident.involvedGuardCount}</td>
